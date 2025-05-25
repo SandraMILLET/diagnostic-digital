@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Résultats du diagnostic</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Poppins&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(263deg, #412e7e, #a6c2f4, #6e84de, #b687e2, #9b5dc9);
+    }
+    h1, h2 {
+      font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 text-white">
+
+  <main class="w-full max-w-3xl bg-white text-gray-800 rounded-2xl shadow-2xl p-8 space-y-6">
+    <h1 class="text-3xl font-bold text-center text-[#412e7e]">🎯 Résultats de ton diagnostic</h1>
+
+    <div class="text-center">
+      <p class="text-lg">Ton niveau global : <span id="niveau-display" class="font-bold text-[#6e84de]"></span></p>
+      <p>Score obtenu : <span id="score-animated" class="font-bold text-[#412e7e]">0</span> / 30</p>
+    </div>
+
+    <div id="synthese" class="bg-[#f4f7fb] text-sm text-gray-800 p-4 rounded-md shadow-inner">
+      <h2 class="text-xl font-semibold text-[#412e7e] mb-2">💡 Tes axes de progression :</h2>
+      <ul id="axes-list" class="list-disc pl-4 space-y-2"></ul>
+    </div>
+
+    <div class="text-center mt-6">
+      <button id="open-form-btn" class="bg-[#6e84de] hover:bg-[#9b5dc9] text-white py-3 px-6 rounded-lg font-semibold transition duration-200">
+        📩 Envoyer mon plan par mail
+      </button>
+    </div>
+
+    <!-- Formulaire caché -->
+    <div id="email-form" class="hidden bg-gray-100 p-4 mt-4 rounded-md shadow-md space-y-4">
+      <h3 class="text-md font-semibold text-[#412e7e]">Entre ton email pour recevoir ton plan complet :</h3>
+      <form id="sendForm">
+        <input type="email" name="email" required placeholder="Ton adresse email" class="w-full px-4 py-2 border rounded-md mb-2" />
+        <input type="url" name="website" placeholder="Ton site web (optionnel)" class="w-full px-4 py-2 border rounded-md mb-2" />
+        <button type="submit" class="bg-[#412e7e] hover:bg-[#6e84de] text-white py-2 px-4 rounded font-semibold">
+          ✅ Envoyer mon plan
+        </button>
+      </form>
+      <p id="form-status" class="text-sm mt-2 text-green-600 hidden">Envoi en cours...</p>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      const scoreDisplay = document.getElementById('score-animated');
+      const niveauDisplay = document.getElementById('niveau-display');
+      const axesList = document.getElementById('axes-list');
+      const form = document.getElementById('sendForm');
+      const formContainer = document.getElementById('email-form');
+      const openFormBtn = document.getElementById('open-form-btn');
+      const status = document.getElementById('form-status');
+
+      const res = await fetch('data_conseils.json');
+      const data = await res.json();
+      const responses = JSON.parse(localStorage.getItem('diagnosticResponses')) || [];
+
+      let total = 0;
+      let synthese = [];
+
+      responses.forEach((rep, index) => {
+        const question = data.questions[index];
+        const answer = question.answers.find(a => a.score == parseInt(rep));
+        total += answer.score;
+
+        if (answer.score < 3) {
+          synthese.push(`🔹 ${answer.conseil}`);
+        }
+      });
+
+      // Score animé
+      let current = 0;
+      const interval = setInterval(() => {
+        current++;
+        scoreDisplay.textContent = current;
+        if (current >= total) clearInterval(interval);
+      }, 40);
+
+      let niveau = '';
+      if (total <= 15) niveau = 'Débutant';
+      else if (total <= 23) niveau = 'Intermédiaire';
+      else niveau = 'Avancé';
+
+      niveauDisplay.textContent = niveau;
+
+      synthese.slice(0, 5).forEach(txt => {
+        const li = document.createElement('li');
+        li.textContent = txt;
+        axesList.appendChild(li);
+      });
+
+      openFormBtn.addEventListener('click', () => {
+        formContainer.classList.remove('hidden');
+        openFormBtn.classList.add('hidden');
+      });
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.textContent = "⏳ Envoi en cours...";
+        status.classList.remove('hidden');
+
+        const email = form.email.value;
+        const website = form.website.value;
+
+        const payload = {
+          email,
+          website,
+          score: total,
+          niveau,
+          responses,
+        };
+
+        try {
+          const res = await fetch('save.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          });
+
+          if (res.ok) {
+            window.location.href = "merci-envoi.html";
+          } else {
+            status.textContent = "❌ Une erreur est survenue lors de l'envoi.";
+          }
+        } catch (err) {
+          console.error(err);
+          status.textContent = "⚠️ Impossible de se connecter au serveur.";
+        }
+      });
+    });
+  </script>
+</body>
+</html>

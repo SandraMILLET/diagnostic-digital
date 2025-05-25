@@ -1,0 +1,214 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "question": "As-tu un site web pour ton activité ?",
+      "answers": [
+        {
+          "label": "Aucun site",
+          "score": 1,
+          "conseil": "Crée une page simple pour présenter ton activité et être trouvable en ligne."
+        },
+        {
+          "label": "Un site simple type WordPress",
+          "score": 2,
+          "conseil": "Optimise ton site : design clair, responsive, infos à jour."
+        },
+        {
+          "label": "Un site pro (vitrine ou e-commerce)",
+          "score": 3,
+          "conseil": "Ajoute des appels à l'action, travaille le SEO et les contenus."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "Est-ce que ton site est visible sur Google ?",
+      "answers": [
+        {
+          "label": "Je ne sais pas / Non",
+          "score": 1,
+          "conseil": "Recherche ton nom sur Google et vérifie ta présence. Sinon, travaille ton référencement."
+        },
+        {
+          "label": "Je suis trouvable sur nom de domaine",
+          "score": 2,
+          "conseil": "Commence à ajouter des mots-clés pertinents dans tes titres et textes."
+        },
+        {
+          "label": "Je sors sur des mots-clés",
+          "score": 3,
+          "conseil": "Pense à travailler le SEO local et les longues traînes."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "Utilises-tu une fiche Google Business Profile ?",
+      "answers": [
+        {
+          "label": "Je n’en ai pas",
+          "score": 1,
+          "conseil": "Crée une fiche Google gratuite, c'est essentiel pour être visible localement."
+        },
+        {
+          "label": "J’en ai une mais peu optimisée",
+          "score": 2,
+          "conseil": "Ajoute des photos, horaires, lien de site, et demande des avis clients."
+        },
+        {
+          "label": "Elle est complète et je récolte des avis",
+          "score": 3,
+          "conseil": "Continue à récolter des avis et à actualiser régulièrement ta fiche."
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "As-tu une présence régulière sur les réseaux sociaux ?",
+      "answers": [
+        {
+          "label": "Pas vraiment",
+          "score": 1,
+          "conseil": "Choisis un seul réseau adapté à ta cible et publie 1x/semaine."
+        },
+        {
+          "label": "Je publie de temps en temps",
+          "score": 2,
+          "conseil": "Mets en place un calendrier simple avec 2 posts/semaine."
+        },
+        {
+          "label": "J’ai une stratégie et un calendrier",
+          "score": 3,
+          "conseil": "Analyse tes stats et ajuste ton contenu selon les retours."
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "question": "Est-ce que tu collectes les emails de tes prospects ?",
+      "answers": [
+        {
+          "label": "Non",
+          "score": 1,
+          "conseil": "Mets en place un formulaire simple ou un lead magnet pour commencer à collecter."
+        },
+        {
+          "label": "J’ai un formulaire",
+          "score": 2,
+          "conseil": "Ajoute une promesse claire pour inciter à laisser leur email."
+        },
+        {
+          "label": "J’ai un système automatisé (lead magnet, newsletter…)",
+          "score": 3,
+          "conseil": "Fais des campagnes régulières et mesure les retours."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "question": "Peux-tu modifier toi-même ton site web ?",
+      "answers": [
+        {
+          "label": "Non, je dois demander",
+          "score": 1,
+          "conseil": "Choisis une solution où tu peux intervenir facilement (ex : WordPress, Webflow)."
+        },
+        {
+          "label": "Je peux faire quelques modifs",
+          "score": 2,
+          "conseil": "Forme-toi sur ton CMS pour gagner en autonomie."
+        },
+        {
+          "label": "Je suis autonome",
+          "score": 3,
+          "conseil": "Utilise cette liberté pour garder ton site toujours à jour et pertinent."
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "question": "Ton site est-il optimisé pour mobile ?",
+      "answers": [
+        {
+          "label": "Je ne sais pas",
+          "score": 1,
+          "conseil": "Teste-le sur ton téléphone ou avec Google Mobile Friendly Test."
+        },
+        {
+          "label": "Ça s’affiche mais c’est moyen",
+          "score": 2,
+          "conseil": "Revois les blocs de contenu et la lisibilité sur petits écrans."
+        },
+        {
+          "label": "Parfaitement lisible et rapide",
+          "score": 3,
+          "conseil": "Vérifie régulièrement les performances (vitesse, expérience mobile)."
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "question": "Utilises-tu des outils pour suivre ton trafic ?",
+      "answers": [
+        {
+          "label": "Aucun",
+          "score": 1,
+          "conseil": "Installe Google Analytics ou une alternative simple pour débuter."
+        },
+        {
+          "label": "J’ai Google Analytics mais je regarde peu",
+          "score": 2,
+          "conseil": "Consulte ton tableau de bord 1x/mois pour ajuster ta stratégie."
+        },
+        {
+          "label": "Je suis les stats et j’analyse",
+          "score": 3,
+          "conseil": "Utilise les données pour tester de nouvelles idées de contenus ou offres."
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "question": "As-tu mis en place un tunnel de vente ou un parcours client clair ?",
+      "answers": [
+        {
+          "label": "Non",
+          "score": 1,
+          "conseil": "Identifie les étapes clés : découverte, intérêt, décision, action. Crée une page simple par étape."
+        },
+        {
+          "label": "J’ai quelques étapes manuelles",
+          "score": 2,
+          "conseil": "Automatise avec un outil comme Système.io ou MailerLite pour fluidifier."
+        },
+        {
+          "label": "Mon tunnel est clair, mes prospects sont guidés",
+          "score": 3,
+          "conseil": "Optimise les taux de conversion à chaque étape."
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "question": "À quelle fréquence mets-tu à jour tes contenus ou ton site ?",
+      "answers": [
+        {
+          "label": "Jamais",
+          "score": 1,
+          "conseil": "Commence par mettre à jour les infos clés (tarifs, horaires, prestations)."
+        },
+        {
+          "label": "Parfois, quand j’ai le temps",
+          "score": 2,
+          "conseil": "Planifie une session de mise à jour mensuelle dans ton agenda."
+        },
+        {
+          "label": "J’ai un rythme de mise à jour défini",
+          "score": 3,
+          "conseil": "Super ! Continue et explore l’ajout d’un blog ou portfolio actif."
+        }
+      ]
+    }
+  ]
+}
