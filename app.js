@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('diagnostic-form');
   const navContainer = document.getElementById('nav-container');
   const prevBtn = document.getElementById('prev-btn');
-  const nextBtn = document.getElementById('next-btn');
   const submitBtn = document.getElementById('submit-btn');
 
   let currentIndex = 0;
@@ -58,6 +57,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       input.addEventListener('change', () => {
         answers[index] = parseInt(input.value);
+        if (currentIndex < questionsData.length - 1) {
+          currentIndex++;
+          showQuestion(currentIndex);
+        } else {
+          submitBtn.style.display = 'inline-block';
+        }
       });
 
       option.appendChild(input);
@@ -68,18 +73,8 @@ document.addEventListener('DOMContentLoaded', () => {
     form.appendChild(questionBlock);
 
     prevBtn.style.display = index === 0 ? 'none' : 'inline-block';
-    nextBtn.style.display = index < questionsData.length - 1 ? 'inline-block' : 'none';
     submitBtn.style.display = index === questionsData.length - 1 ? 'inline-block' : 'none';
   }
-
-  nextBtn.addEventListener('click', () => {
-    if (answers[currentIndex] === null) {
-      alert("Merci de répondre à la question avant de continuer.");
-      return;
-    }
-    currentIndex++;
-    showQuestion(currentIndex);
-  });
 
   prevBtn.addEventListener('click', () => {
     if (currentIndex > 0) {
@@ -94,7 +89,6 @@ document.addEventListener('DOMContentLoaded', () => {
       alert("Merci de répondre à toutes les questions.");
       return;
     }
-
     localStorage.setItem("diagnosticResponses", JSON.stringify(answers));
     window.location.href = "merci.html";
   });
