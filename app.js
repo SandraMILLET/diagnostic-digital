@@ -74,7 +74,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     prevBtn.style.display = index === 0 ? 'none' : 'inline-block';
     submitBtn.style.display = index === questionsData.length - 1 ? 'inline-block' : 'none';
-  }
+    // 🔥 Barre de progression dynamique
+  const progressPercent = ((index + 1) / questionsData.length) * 100;
+  const progressBar = document.getElementById('progressBar');
+  const progressText = document.getElementById('progressText');
+  if (progressBar) progressBar.style.width = `${progressPercent}%`;
+  if (progressText) progressText.textContent = `Question ${index + 1} / ${questionsData.length}`;
+}
 
   prevBtn.addEventListener('click', () => {
     if (currentIndex > 0) {

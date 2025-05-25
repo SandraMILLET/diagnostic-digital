@@ -38,7 +38,15 @@
     </section>
 
     <!-- Questionnaire (caché au départ) -->
+         <div class="w-full bg-gray-200 rounded-full h-3 mb-4 overflow-hidden">
+  <div id="progressBar" class="h-3 rounded-full transition-all duration-300"
+       style="width: 0%; background: linear-gradient(to right, #6e84de, #b687e2);">
+  </div>
+</div>
+<p id="progressText" class="text-sm text-gray-700 text-center mb-4">Question 1 / 10</p>
+
     <form id="diagnostic-form" class="space-y-6 hidden"></form>
+
 <div id="nav-container" class="hidden flex justify-between items-center gap-4 mt-6">
   <button id="prev-btn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 px-4 rounded transition duration-200">
     ⬅ Précédent
