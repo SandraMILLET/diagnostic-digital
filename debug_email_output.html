@@ -1,90 +1,104 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <title>Ton plan digital est prêt</title>
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f7f7f7;
-      color: #333;
-      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9fb;
       padding: 0;
+      margin: 0;
+      color: #333;
     }
     .container {
-      background-color: #ffffff;
-      max-width: 600px;
-      margin: 20px auto;
+      max-width: 650px;
+      margin: auto;
+      background: white;
       padding: 30px;
       border-radius: 12px;
-      border: 1px solid #e0e0e0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .logo {
+      display: block;
+      margin: 0 auto 20px;
+      height: 60px;
     }
     h1 {
+      text-align: center;
       color: #412e7e;
     }
-    .section-title {
+    h2 {
       color: #6e84de;
-      margin-top: 24px;
+      margin-top: 30px;
+    }
+    .score-box {
+      background: linear-gradient(to right, #6e84de, #b687e2);
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      text-align: center;
+      margin: 20px 0;
     }
     .question {
       font-weight: bold;
       color: #412e7e;
-      margin-top: 12px;
+      margin-bottom: 5px;
     }
     .answer {
-      font-style: italic;
-      color: #555;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      color: #333;
     }
     .conseil {
-      background: #f4f7fb;
-      padding: 10px;
-      margin: 8px 0;
-      border-left: 4px solid #6e84de;
+      background-color: #f3f0fa;
+      border-left: 5px solid #9b5dc9;
+      padding: 10px 15px;
       border-radius: 6px;
+      margin-bottom: 15px;
+      color: #412e7e;
     }
     .cta-button {
-      display: inline-block;
-      margin: 24px 0;
-      background-color: #6e84de;
+      background: #6e84de;
       color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
+      padding: 12px 20px;
+      border-radius: 30px;
       text-decoration: none;
-      font-weight: bold;
+      display: inline-block;
+      margin-top: 20px;
     }
     .footer {
-      font-size: 13px;
-      color: #999;
-      margin-top: 30px;
       text-align: center;
+      font-size: 12px;
+      color: #888;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
   <div class="container">
+    <img src="https://rsm-websolutions.fr/logo.png" alt="Logo RSM Web Solutions" class="logo" />
     <h1>🎯 Ton plan digital est prêt !</h1>
 
     <p>Bonjour,</p>
     <p>Merci d’avoir complété ton diagnostic sur RSM Web Solutions.</p>
 
-    <h2 class="section-title">📊 Résumé</h2>
-    <p><strong>Score :</strong> 21 / 30</p>
-    <p><strong>Niveau :</strong> Avancé</p>
+    <div class="score-box">
+      <p><strong>Score :</strong> 20 / 30</p>
+      <p><strong>Niveau :</strong> Avancé</p>
+    </div>
 
-    <h2 class="section-title">✅ Tes réponses</h2>
-    <div><p class='question'>As-tu un site web pour ton activité ?</p><p class='answer'>✔️ Un site simple type WordPress</p></div><div><p class='question'>Est-ce que ton site est visible sur Google ?</p><p class='answer'>✔️ Je suis trouvable sur nom de domaine</p></div><div><p class='question'>Utilises-tu une fiche Google Business Profile ?</p><p class='answer'>✔️ J’en ai une mais peu optimisée</p></div><div><p class='question'>As-tu une présence régulière sur les réseaux sociaux ?</p><p class='answer'>✔️ Je publie de temps en temps</p></div><div><p class='question'>Est-ce que tu collectes les emails de tes prospects ?</p><p class='answer'>✔️ J’ai un formulaire</p></div><div><p class='question'>Peux-tu modifier toi-même ton site web ?</p><p class='answer'>✔️ Je peux faire quelques modifs</p></div><div><p class='question'>Ton site est-il optimisé pour mobile ?</p><p class='answer'>✔️ Ça s’affiche mais c’est moyen</p></div><div><p class='question'>Utilises-tu des outils pour suivre ton trafic ?</p><p class='answer'>✔️ J’ai Google Analytics mais je regarde peu</p></div><div><p class='question'>As-tu mis en place un tunnel de vente ou un parcours client clair ?</p><p class='answer'>✔️ J’ai quelques étapes manuelles</p></div><div><p class='question'>À quelle fréquence mets-tu à jour tes contenus ou ton site ?</p><p class='answer'>✔️ J’ai un rythme de mise à jour défini</p></div>
+    <h2>✅ Tes réponses</h2>
+    <div><p class='question'>As-tu un site web pour ton activité ?</p><p class='answer'>✔️ Un site simple type WordPress</p></div><div><p class='question'>Est-ce que ton site est visible sur Google ?</p><p class='answer'>✔️ Je suis trouvable sur nom de domaine</p></div><div><p class='question'>Utilises-tu une fiche Google Business Profile ?</p><p class='answer'>✔️ J’en ai une mais peu optimisée</p></div><div><p class='question'>As-tu une présence régulière sur les réseaux sociaux ?</p><p class='answer'>✔️ Je publie de temps en temps</p></div><div><p class='question'>Est-ce que tu collectes les emails de tes prospects ?</p><p class='answer'>✔️ J’ai un formulaire</p></div><div><p class='question'>Peux-tu modifier toi-même ton site web ?</p><p class='answer'>✔️ Je peux faire quelques modifs</p></div><div><p class='question'>Ton site est-il optimisé pour mobile ?</p><p class='answer'>✔️ Ça s’affiche mais c’est moyen</p></div><div><p class='question'>Utilises-tu des outils pour suivre ton trafic ?</p><p class='answer'>✔️ J’ai Google Analytics mais je regarde peu</p></div><div><p class='question'>As-tu mis en place un tunnel de vente ou un parcours client clair ?</p><p class='answer'>✔️ J’ai quelques étapes manuelles</p></div><div><p class='question'>À quelle fréquence mets-tu à jour tes contenus ou ton site ?</p><p class='answer'>✔️ Parfois, quand j’ai le temps</p></div>
 
-    <h2 class="section-title">💡 Nos recommandations personnalisées</h2>
-    <div class='conseil'>💡 Optimise ton site : design clair, responsive, infos à jour.</div><div class='conseil'>💡 Commence à ajouter des mots-clés pertinents dans tes titres et textes.</div><div class='conseil'>💡 Ajoute des photos, horaires, lien de site, et demande des avis clients.</div><div class='conseil'>💡 Mets en place un calendrier simple avec 2 posts/semaine.</div><div class='conseil'>💡 Ajoute une promesse claire pour inciter à laisser leur email.</div><div class='conseil'>💡 Forme-toi sur ton CMS pour gagner en autonomie.</div><div class='conseil'>💡 Revois les blocs de contenu et la lisibilité sur petits écrans.</div><div class='conseil'>💡 Consulte ton tableau de bord 1x/mois pour ajuster ta stratégie.</div><div class='conseil'>💡 Automatise avec un outil comme Système.io ou MailerLite pour fluidifier.</div><div class='conseil'>💡 Super ! Continue et explore l’ajout d’un blog ou portfolio actif.</div>
+    <h2>💡 Nos recommandations personnalisées</h2>
+    <div class='conseil'>💡 Optimise ton site : design clair, responsive, infos à jour.</div><div class='conseil'>💡 Commence à ajouter des mots-clés pertinents dans tes titres et textes.</div><div class='conseil'>💡 Ajoute des photos, horaires, lien de site, et demande des avis clients.</div><div class='conseil'>💡 Mets en place un calendrier simple avec 2 posts/semaine.</div><div class='conseil'>💡 Ajoute une promesse claire pour inciter à laisser leur email.</div><div class='conseil'>💡 Forme-toi sur ton CMS pour gagner en autonomie.</div><div class='conseil'>💡 Revois les blocs de contenu et la lisibilité sur petits écrans.</div><div class='conseil'>💡 Consulte ton tableau de bord 1x/mois pour ajuster ta stratégie.</div><div class='conseil'>💡 Automatise avec un outil comme Système.io ou MailerLite pour fluidifier.</div><div class='conseil'>💡 Planifie une session de mise à jour mensuelle dans ton agenda.</div>
 
-    <p>Pour découvrir ton plan complet et passer à l’action :</p>
-    <a href="https://bit.ly/checklist-seo-express" class="cta-button">📥 Découvrir mon plan complet</a>
+    <a href="https://bit.ly/checklist-seo-express" class="cta-button">🚀 Découvrir mon plan complet</a>
 
     <div class="footer">
-      <p>À très bientôt,</p>
-      <p><strong>Sandra</strong> – RSM Web Solutions</p>
-      <img src="http://localhost:8889/track.php?email=sandrat.millet@gmail.com" width="1" height="1" style="display:none;" alt="." />
+      À très bientôt,<br>
+      <strong>Sandra – RSM Web Solutions</strong><br>
+      <img src="http://localhost:8889/track.php?email=haussier.fongique-0h@icloud.com" width="1" height="1" style="display:none;" alt="." />
     </div>
   </div>
 </body>
