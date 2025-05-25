@@ -56,19 +56,25 @@ try {
 
 // Génération du contenu email
 $questions = json_decode(file_get_contents('data_conseils.json'), true)['questions'];
-$reponses_html = '';
-$conseils_html = '';
+$htmlFusionne = '';
+
 
 foreach ($responses as $index => $val) {
   $q = $questions[$index];
+
   foreach ($q['answers'] as $answer) {
     if ((int)$answer['score'] === (int)$val) {
-      $reponses_html .= "<div><p class='question'>{$q['question']}</p><p class='answer'>✔️ {$answer['label']}</p></div>";
-      $conseils_html .= "<div class='conseil'>💡 {$answer['conseil']}</div>";
+      $htmlFusionne .=
+        "<div class='bloc-question'>" .
+          "<p class='question'>" . ($index + 1) . ". " . $q['question'] . "</p>" .
+          "<p class='answer'>✅ " . $answer['label'] . "</p>" .
+          "<div class='conseil'>💡 " . $answer['conseil'] . "</div>" .
+        "</div>";
       break;
     }
   }
 }
+
 file_put_contents("debug.json", json_encode($responses));
 file_put_contents("debug_reponses.txt", $reponses_html);
 file_put_contents("debug_conseils.txt", $conseils_html);
@@ -84,8 +90,8 @@ if (!$template) {
 // Remplacement des variables dans le template
 $template = str_replace('{{score}}', $score, $template);
 $template = str_replace('{{niveau}}', $niveau, $template);
-$template = str_replace('{{reponses_html}}', $reponses_html, $template);
-$template = str_replace('{{conseils_html}}', $conseils_html, $template);
+$template = str_replace('{{htmlFusionne}}', $htmlFusionne, $template);
+
 $template = str_replace('{{email}}', $email, $template); // pour pixel tracking
 file_put_contents("debug_email_output.html", $template);
 // Vérification de l'email
