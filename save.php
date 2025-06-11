@@ -1,6 +1,5 @@
 
 <?php
-echo "<pre>CHEMIN ACTIF : " . __DIR__ . "</pre>";
 // Affichage des erreurs pour le débogage
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -14,11 +13,11 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // Connexion à la base
-$host = '127.0.0.1';
-$port = 8889;
-$dbname = 'audit_express';
-$username = 'root';
-$password = 'root';
+$host = 'db5016452467.hosting-data.io';
+$port = 3306;
+$dbname = 'dbs13361244';
+$username = 'dbu2883943';
+$password = 'boNqax-ranqeb-cuvve8';
 
 try {
   $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8", $username, $password);
@@ -75,9 +74,9 @@ foreach ($responses as $index => $val) {
   }
 }
 
-file_put_contents("debug.json", json_encode($responses));
-file_put_contents("debug_reponses.txt", $reponses_html);
-file_put_contents("debug_conseils.txt", $conseils_html);
+//file_put_contents("debug.json", json_encode($responses));
+//file_put_contents("debug_reponses.txt", $reponses_html);
+//file_put_contents("debug_conseils.txt", $conseils_html);
 // Vérification des données
 
 // Chargement du template
@@ -93,22 +92,33 @@ $template = str_replace('{{niveau}}', $niveau, $template);
 $template = str_replace('{{htmlFusionne}}', $htmlFusionne, $template);
 
 $template = str_replace('{{email}}', $email, $template); // pour pixel tracking
-file_put_contents("debug_email_output.html", $template);
-// Vérification de l'email
+//file_put_contents("debug_email_output.html", $template);
 
+// Chargement du mot de passe depuis .env
+$config = require __DIR__ . '/.env.php';
 // Envoi du mail
 $mail = new PHPMailer(true);
 try {
   $mail->isSMTP();
-  $mail->Host = 'localhost';
-  $mail->Port = 1025;
-  $mail->SMTPAuth = false;
+  $mail->Host = 'smtp.ionos.fr';
+  $mail->Port = 587;
+  $mail->SMTPAuth = true;
+  $mail->Username = 'contact@rsm-websolutions.fr';
+  $mail->Password = $config['smtp_password'];
+
+  $mail->SMTPSecure = 'tls';
 
   $mail->setFrom('contact@rsm-websolutions.fr', 'Sandra – RSM Web Solutions');
   $mail->addAddress($email);
   $mail->isHTML(true);
+  $mail->CharSet = 'UTF-8';
+  $mail->Encoding = 'base64';
   $mail->Subject = '📩 Ton plan digital personnalisé est prêt !';
-  file_put_contents("debug_email_final.html", $template);
+$template = str_replace('{{tracking_pixel}}', '<img src="https://diagnostic-digital-express.rsm-websolutions.fr/track.php?email=' . urlencode($email) . '" width="1" height="1" style="display:none;" />', $template);
+$template = str_replace('{{email}}', $email, $template);
+$template = str_replace('{{prenom}}', $prenom, $template);
+
+  //file_put_contents("debug_email_final.html", $template);
   $mail->Body = $template;
 
   $mail->send();

@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Ton plan digital est prêt</title>
+  <title>Votre Diagnostic SEO Express</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -76,11 +76,11 @@
 </head>
 <body>
   <div class="container">
-    <img src="https://rsm-websolutions.fr/logo.png" alt="Logo RSM Web Solutions" class="logo" />
-    <h1>🎯 Ton plan digital est prêt !</h1>
+    <img src="https://asset.rsm-websolutions.fr/logo.png" alt="Logo RSM Web Solutions" class="logo" />
+    <h1>🎯 Vos résultats sont prêts !</h1>
 
-    <p>Bonjour,</p>
-    <p>Merci d’avoir complété ton diagnostic sur RSM Web Solutions.</p>
+    <p>Bonjour {{prenom}},</p>
+    <p>Merci d’avoir complété ton diagnostic. Voici vos résultats personnalisés 👇.</p>
 
     <div class="score-box">
       <p><strong>Score :</strong> {{score}} / 30</p>
@@ -90,14 +90,24 @@
     <h2>🧾 Ton diagnostic détaillé</h2>
 {{htmlFusionne}}
 
+<p style="margin-top:30px;">
+      🎁 Découvrez comment passer à l’action dès aujourd’hui :
+      <br>
+<a href="https://diagnostic-digital-express.rsm-websolutions.fr/click.php?email={{email}}&amp;redirect=https%3A%2F%2Frsm-web-solutions.metaforma.io%2F1fd20069b82e6382821fd46cba8f6529"
+   style="display:inline-block; background:#6e84de; color:white; padding:12px 20px; text-decoration:none; border-radius:6px; margin-top:10px;">
+   ➕ Découvrir ma checklist gratuite
+</a>
 
-    <a href="https://bit.ly/checklist-seo-express" class="cta-button">🚀 Découvrir ma checklist</a>
 
-    <div class="footer">
-      À très bientôt,<br>
-      <strong>Sandra – RSM Web Solutions</strong><br>
-      <img src="http://localhost:8889/track.php?email={{email}}" width="1" height="1" style="display:none;" alt="." />
-    </div>
+
+    <hr style="margin:40px 0; border:none; border-top:1px solid #ddd;">
+    <p style="font-size:12px; color:#999;">
+      Vous recevez ce mail car vous avez effectué un diagnostic sur rsm-websolutions.fr.
+    </p>
+
+    {{tracking_pixel}}
+  </div>
+
   </div>
 </body>
 </html>

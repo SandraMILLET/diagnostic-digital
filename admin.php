@@ -3,11 +3,11 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-$host = '127.0.0.1';
-$port = 8889;
-$dbname = 'audit_express';
-$username = 'root';
-$password = 'root';
+$host = 'db5016452467.hosting-data.io';
+$port = 3306;
+$dbname = 'dbs13361244';
+$username = 'dbu2883943';
+$password = 'boNqax-ranqeb-cuvve8';
 
 try {
   $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8", $username, $password);

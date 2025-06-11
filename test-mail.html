@@ -2,26 +2,36 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Test Envoi Email</title>
+  <title>Test d'envoi SMTP IONOS</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <h1>Test envoi email avec PHPMailer</h1>
-  <form id="mailTestForm">
-    <label for="email">Adresse email :</label>
-    <input type="email" id="email" value="test@localhost.com" required>
-    <button type="submit">Envoyer</button>
-  </form>
-
-  <p id="resultat"></p>
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-purple-700 via-blue-500 to-purple-400 p-6 text-white font-sans">
+  <div class="bg-white text-gray-800 p-6 rounded-lg shadow-xl w-full max-w-lg">
+    <h1 class="text-xl font-bold mb-4">📧 Test d'envoi d'email via IONOS SMTP</h1>
+    <form id="mailTestForm" class="space-y-4">
+      <div>
+        <label for="email" class="block text-sm font-semibold">Adresse email à tester :</label>
+        <input type="email" id="email" placeholder="exemple@domaine.fr" required class="w-full px-4 py-2 border rounded" />
+      </div>
+      <button type="submit" class="bg-purple-700 text-white px-6 py-2 rounded hover:bg-purple-900 transition">Envoyer</button>
+    </form>
+    <p id="resultat" class="mt-4 text-sm text-center"></p>
+  </div>
 
   <script>
     document.getElementById('mailTestForm').addEventListener('submit', async function(e) {
       e.preventDefault();
       const email = document.getElementById('email').value;
-      const res = await fetch('save-debug.php', {
+      const res = await fetch('save.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email })
+        body: JSON.stringify({
+          email,
+          website: 'https://exemple.fr',
+          score: 24,
+          niveau: 'Avancé',
+          responses: [2,2,2,2,2,2,2,2,2,2]
+        })
       });
 
       const text = await res.text();
